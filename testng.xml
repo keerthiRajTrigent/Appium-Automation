@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Trigent Automation Framework">
+     <test name="Set-1" preserve-order="true">
+        <parameter name="browser" value ="Android"></parameter>
+        <classes>
+          	<class name="test.LoginTest"></class>
+          	<class name="test.RaiseTicketTest"></class>
+       </classes>
+     </test>
+</suite>
+
+

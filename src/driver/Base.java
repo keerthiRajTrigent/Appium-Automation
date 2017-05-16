@@ -7,12 +7,15 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
@@ -38,11 +41,14 @@ public class Base {
 	/** The Operationsmenu. */
 	public static Actions Operationsmenu;
 
-	protected AppiumDriver<WebElement> driver;
+	protected ThreadLocal<RemoteWebDriver> threadDriver;
 
 	@BeforeClass
-	public void setUp() throws IOException, InterruptedException {
+	 @Parameters("browser")
+	public void setUp(String Browser) throws IOException, InterruptedException {
 		// Created object of DesiredCapabilities class.
+		System.out.println("In Before Class for Browser:: " + Browser);
+		Base.init();
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 
 		// Set android deviceName desired capability. Set your device name.
@@ -53,13 +59,15 @@ public class Base {
 		capabilities.setCapability("appPackage", CONFIG.getProperty("appPackage"));
 		capabilities.setCapability("appActivity", CONFIG.getProperty("appActivity"));
 
-		driver = new AndroidDriver<WebElement>(new URL(CONFIG.getProperty("HUB_URL")), capabilities);
-		//	  driver = new RemoteWebDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		threadDriver = new ThreadLocal<RemoteWebDriver>();
+		threadDriver.set(new RemoteWebDriver(new URL(CONFIG.getProperty("HUB_URL")), capabilities));;
+
+		String timout = CONFIG.getProperty("IMPLICIT_WAIT");
+		getDriver().manage().timeouts().implicitlyWait(Long.parseLong(timout.trim()), TimeUnit.SECONDS);
 	}
 
-	public AppiumDriver<WebElement> getDriver() {    
-		return driver;
+	public WebDriver getDriver() {    
+		return threadDriver.get();
 	}
 
 

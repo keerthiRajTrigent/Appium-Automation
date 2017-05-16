@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>0/0/3</td>
+<td>Tests passed/Failed/Skipped:</td><td>0/0/1</td>
 </tr><tr>
-<td>Started on:</td><td>Fri May 12 17:00:20 IST 2017</td>
+<td>Started on:</td><td>Mon May 15 16:42:04 IST 2017</td>
 </tr>
-<tr><td>Total time:</td><td>48 seconds (48478 ms)</td>
+<tr><td>Total time:</td><td>0 seconds (37 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,40 +75,19 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='test.Mytestclass.setUp()'><b>setUp</b><br>Test class: test.Mytestclass</td>
-<td><div><pre>org.openqa.selenium.WebDriverException: An unknown server-side error occurred while processing the command. Original error: Error occured while starting App. Original error: Activity used to start app doesn&apos;t exist or cannot be launched! Make sure it exists and is a launchable activity (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 47.91 seconds
-Build info: version: &apos;2.51.0&apos;, revision: &apos;1af067d&apos;, time: &apos;2016-02-05 19:11:55&apos;
-System info: host: &apos;TSLC0780&apos;, ip: &apos;10.0.1.213&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_131&apos;
-Driver info: io.appium.java_client.android.AndroidDriver
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
-	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
-	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:42)
-	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
-	at io.appium.java_client.android.AndroidDriver.execute(AndroidDriver.java:1)
-	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:249)
-	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:131)
-	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:144)
-	at io.appium.java_client.DefaultGenericMobileDriver.&lt;init&gt;(DefaultGenericMobileDriver.java:37)
-	at io.appium.java_client.AppiumDriver.&lt;init&gt;(AppiumDriver.java:161)
-	at io.appium.java_client.AppiumDriver.&lt;init&gt;(AppiumDriver.java:170)
-	at io.appium.java_client.android.AndroidDriver.&lt;init&gt;(AndroidDriver.java:82)
-	at test.Mytestclass.setUp(Mytestclass.java:69)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
-	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:510)
-	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:211)
+<td title='test.LoginTest.setUp()'><b>setUp</b><br>Test class: test.LoginTest</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browser&apos; is required by @Configuration on method setUp but has not been marked @Optional or defined
+in C:\Users\abhishek_p\AppData\Local\Temp\testng-eclipse-1817237170\testng-customsuite.xml
+	at org.testng.internal.Parameters.createParameters(Parameters.java:154)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:361)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:84)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:197)
 	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:138)
-	at org.testng.TestRunner.beforeRun(TestRunner.java:648)
-	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:170)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:104)
+	at org.testng.TestRunner.privateRun(TestRunner.java:774)
+	at org.testng.TestRunner.run(TestRunner.java:624)
 	at org.testng.SuiteRunner.runTest(SuiteRunner.java:359)
 	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:354)
 	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:312)
@@ -121,40 +100,19 @@ Driver info: io.appium.java_client.android.AndroidDriver
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1636050357", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1636050357'><pre>org.openqa.selenium.WebDriverException: An unknown server-side error occurred while processing the command. Original error: Error occured while starting App. Original error: Activity used to start app doesn&apos;t exist or cannot be launched! Make sure it exists and is a launchable activity (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 47.91 seconds
-Build info: version: &apos;2.51.0&apos;, revision: &apos;1af067d&apos;, time: &apos;2016-02-05 19:11:55&apos;
-System info: host: &apos;TSLC0780&apos;, ip: &apos;10.0.1.213&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_131&apos;
-Driver info: io.appium.java_client.android.AndroidDriver
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
-	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
-	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:42)
-	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
-	at io.appium.java_client.android.AndroidDriver.execute(AndroidDriver.java:1)
-	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:249)
-	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:131)
-	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:144)
-	at io.appium.java_client.DefaultGenericMobileDriver.&lt;init&gt;(DefaultGenericMobileDriver.java:37)
-	at io.appium.java_client.AppiumDriver.&lt;init&gt;(AppiumDriver.java:161)
-	at io.appium.java_client.AppiumDriver.&lt;init&gt;(AppiumDriver.java:170)
-	at io.appium.java_client.android.AndroidDriver.&lt;init&gt;(AndroidDriver.java:82)
-	at test.Mytestclass.setUp(Mytestclass.java:69)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
-	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:510)
-	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:211)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1130894323", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1130894323'><pre>org.testng.TestNGException: 
+Parameter &apos;browser&apos; is required by @Configuration on method setUp but has not been marked @Optional or defined
+in C:\Users\abhishek_p\AppData\Local\Temp\testng-eclipse-1817237170\testng-customsuite.xml
+	at org.testng.internal.Parameters.createParameters(Parameters.java:154)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:361)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:84)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:197)
 	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:138)
-	at org.testng.TestRunner.beforeRun(TestRunner.java:648)
-	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:170)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:104)
+	at org.testng.TestRunner.privateRun(TestRunner.java:774)
+	at org.testng.TestRunner.run(TestRunner.java:624)
 	at org.testng.SuiteRunner.runTest(SuiteRunner.java:359)
 	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:354)
 	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:312)
@@ -169,7 +127,7 @@ Driver info: io.appium.java_client.android.AndroidDriver
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
 </pre></div></td>
 <td>0</td>
-<td>null</td></tr>
+<td>test.LoginTest@5f058f00</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-skipped'>
 <tr><td colspan='4' align='center'><b>SKIPPED CONFIGURATIONS</b></td></tr>
@@ -182,17 +140,12 @@ Driver info: io.appium.java_client.android.AndroidDriver
 <td title='test.LoginTest.setUp()'><b>setUp</b><br>Test class: test.LoginTest</td>
 <td></td>
 <td>0</td>
-<td>test.LoginTest@78c03f1f</td></tr>
+<td>test.LoginTest@5f058f00</td></tr>
 <tr>
 <td title='test.LoginTest.quitDriver()'><b>quitDriver</b><br>Test class: test.LoginTest</td>
 <td></td>
 <td>0</td>
-<td>test.LoginTest@78c03f1f</td></tr>
-<tr>
-<td title='test.Mytestclass.End()'><b>End</b><br>Test class: test.Mytestclass</td>
-<td></td>
-<td>0</td>
-<td>null</td></tr>
+<td>test.LoginTest@5f058f00</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-skipped'>
 <tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
@@ -202,20 +155,10 @@ Driver info: io.appium.java_client.android.AndroidDriver
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='test.Mytestclass.Login()'><b>Login</b><br>Test class: test.Mytestclass</td>
-<td></td>
-<td>0</td>
-<td>test.Mytestclass@5ce81285</td></tr>
-<tr>
-<td title='test.Mytestclass.RaiseTicket()'><b>RaiseTicket</b><br>Test class: test.Mytestclass</td>
-<td></td>
-<td>0</td>
-<td>test.Mytestclass@5ce81285</td></tr>
-<tr>
 <td title='test.LoginTest.logintoApp()'><b>logintoApp</b><br>Test class: test.LoginTest</td>
 <td></td>
 <td>0</td>
-<td>test.LoginTest@78c03f1f</td></tr>
+<td>test.LoginTest@5f058f00</td></tr>
 </table><p>
 </body>
 </html>

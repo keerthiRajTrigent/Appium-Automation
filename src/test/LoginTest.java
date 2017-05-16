@@ -19,12 +19,14 @@ public class LoginTest extends Base{
 	@BeforeClass
 	public void setUp(){	
 		System.out.println("In Before Class of LoginTest");
+//		loginEmail = "demo@demo.com";
+//		loginPassword = "password";
 		loginEmail = CONFIG.getProperty("loginEmail");
 		loginPassword = CONFIG.getProperty("loginPassword");
 	}
 	
 	
-	@Test(priority = 3, enabled = true)
+	@Test(priority = 1, enabled = true)
 	public void logintoApp() throws InterruptedException {
 	try
 	{
@@ -33,7 +35,7 @@ public class LoginTest extends Base{
 		LoginPage loginPage = basePage.signIn();
 		Utility.veryShortSleep();
 		HomePage homePage = loginPage.login(loginEmail, loginPassword);
-//		Utility.shortSleep();
+		Utility.shortSleep();
 		System.out.println("login to Application successfully");		
 		}catch (Exception e) {
 			e.printStackTrace();

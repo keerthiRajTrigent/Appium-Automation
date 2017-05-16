@@ -8,13 +8,6 @@
           <include name="logintoApp"/>
         </methods>
       </class> <!-- test.LoginTest -->
-      <class name="test.Mytestclass">
-        <methods>
-          <include name="setUp"/>
-          <include name="RaiseTicket"/>
-          <include name="Login"/>
-        </methods>
-      </class> <!-- test.Mytestclass -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
