@@ -52,9 +52,11 @@ public class LoginPage extends Base{
 
 	public HomePage login(String email, String password) throws InterruptedException{
 		enterEmail(email);
-		Utility.shortSleep();
+		Utility.veryShortSleep();
 		enterPassword(password);
-		Utility.shortSleep();
+		Utility.veryShortSleep();
+		driver.navigate().back();
+		Utility.veryShortSleep();
 		clickSignInButton();
 		Utility.shortSleep();
 		return PageFactory.initElements(driver, HomePage.class);

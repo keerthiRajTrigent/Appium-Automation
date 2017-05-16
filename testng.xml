@@ -4,7 +4,7 @@
         <parameter name="browser" value ="Android"></parameter>
         <classes>
           	<class name="test.LoginTest"></class>
-          	<class name="test.RaiseTicketTest"></class>
+          	<!-- <class name="test.RaiseTicketTest"></class> -->
        </classes>
      </test>
 </suite>

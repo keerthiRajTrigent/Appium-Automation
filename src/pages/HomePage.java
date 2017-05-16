@@ -49,11 +49,13 @@ public class HomePage extends Base {
 	
 	public HomePage raiseTicket(String summary, String description) throws InterruptedException{
 		clickRaiseTicket();
-		Utility.shortSleep();
+		Utility.veryShortSleep();
 		enterSummary(summary);
-		Utility.shortSleep();
+		Utility.veryShortSleep();
 		enterDescription(description);
-		Utility.shortSleep();
+		Utility.veryShortSleep();
+		driver.navigate().back();
+		Utility.veryShortSleep();
 		submitTicket();
 		Utility.shortSleep();
 		return PageFactory.initElements(driver, HomePage.class);

@@ -15,6 +15,8 @@ public class LoginTest extends Base{
 	
 	static String loginEmail = null;
 	static String loginPassword = null;
+	static String summary = null;
+	static String description = null;
 	
 	@BeforeClass
 	public void setUp(){	
@@ -23,6 +25,9 @@ public class LoginTest extends Base{
 //		loginPassword = "password";
 		loginEmail = CONFIG.getProperty("loginEmail");
 		loginPassword = CONFIG.getProperty("loginPassword");
+		
+		summary = CONFIG.getProperty("summary");
+		description = CONFIG.getProperty("description");	
 	}
 	
 	
@@ -30,13 +35,20 @@ public class LoginTest extends Base{
 	public void logintoApp() throws InterruptedException {
 	try
 	{
-		System.out.println("logintoApplicationAndSearch Starts");		
+		System.out.println("login to Application Starts");		
 		BasePage basePage = PageFactory.initElements(getDriver(), BasePage.class);
 		LoginPage loginPage = basePage.signIn();
 		Utility.veryShortSleep();
 		HomePage homePage = loginPage.login(loginEmail, loginPassword);
-		Utility.shortSleep();
-		System.out.println("login to Application successfully");		
+		Utility.veryShortSleep();
+		System.out.println("login to Application successfully");
+		
+		System.out.println("Raising ticket");		
+		basePage.raiseTicket();
+		Utility.veryShortSleep();
+		homePage.raiseTicket(summary,description);
+		Utility.veryShortSleep();
+		System.out.println("Ticket Raised successfully");	
 		}catch (Exception e) {
 			e.printStackTrace();
 			 Assert.fail();
