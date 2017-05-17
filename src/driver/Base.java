@@ -7,12 +7,16 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -20,6 +24,8 @@ import org.testng.annotations.Parameters;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import jdk.nashorn.internal.runtime.regexp.joni.Config;
+import pages.HomePage;
+import utility.Utility;
 
 public class Base {
 
@@ -69,6 +75,8 @@ public class Base {
 	public WebDriver getDriver() {    
 		return threadDriver.get();
 	}
+	
+
 
 
 	/**
@@ -104,5 +112,11 @@ public class Base {
 			DATA.load(da);
 		}			
 	}    
+	
+//	public WebElement findByID(String how, String using) throws InterruptedException{
+//		WebElement riaseTdd = getDriver().findElement(By.id("com.trigent.empconnect:id/activity_login_editText_employeeID"));
+//
+//		return riaseTdd;
+//	}
 
 }

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Trigent Automation Framework" duration-ms="115841" started-at="2017-05-17T07:56:21Z" finished-at="2017-05-17T07:58:16Z">
+    <groups>
+    </groups>
+    <test name="Set-1" duration-ms="115841" started-at="2017-05-17T07:56:21Z" finished-at="2017-05-17T07:58:16Z">
+      <class name="test.LoginTest">
+        <test-method status="PASS" signature="setUp(java.lang.String)[pri:0, instance:test.LoginTest@4dfa3a9d]" name="setUp" is-config="true" duration-ms="34591" started-at="2017-05-17T13:26:21Z" finished-at="2017-05-17T13:26:55Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Android]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:test.LoginTest@4dfa3a9d]" name="setUp" is-config="true" duration-ms="0" started-at="2017-05-17T13:26:55Z" finished-at="2017-05-17T13:26:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="logintoApp()[pri:1, instance:test.LoginTest@4dfa3a9d]" name="logintoApp" duration-ms="76190" started-at="2017-05-17T13:26:55Z" finished-at="2017-05-17T13:28:11Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logintoApp -->
+        <test-method status="PASS" signature="quitDriver()[pri:0, instance:test.LoginTest@4dfa3a9d]" name="quitDriver" is-config="true" duration-ms="5047" started-at="2017-05-17T13:28:11Z" finished-at="2017-05-17T13:28:16Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quitDriver -->
+      </class> <!-- test.LoginTest -->
+    </test> <!-- Set-1 -->
+  </suite> <!-- Trigent Automation Framework -->
+</testng-results>
