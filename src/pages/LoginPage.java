@@ -57,6 +57,8 @@ public class LoginPage extends Base{
 		Utility.veryShortSleep();
 		driver.navigate().back();
 		Utility.veryShortSleep();
+		Utility.takeScreenShot(this.getClass().getName().toString(), driver);
+		Utility.veryShortSleep();
 		clickSignInButton();
 		Utility.shortSleep();
 		return PageFactory.initElements(driver, HomePage.class);

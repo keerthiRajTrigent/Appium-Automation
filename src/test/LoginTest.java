@@ -35,6 +35,7 @@ public class LoginTest extends Base{
 	public void logintoApp() throws InterruptedException {
 	try
 	{
+		Utility.updateToLog("Logintest", "logintoApp", "login to Application Starts");
 		System.out.println("login to Application Starts");		
 		BasePage basePage = PageFactory.initElements(getDriver(), BasePage.class);
 		LoginPage loginPage = basePage.signIn();

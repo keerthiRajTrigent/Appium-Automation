@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Trigent Automation Framework]">
+  <parameter name="browser" value="Android"/>
+  <test name="Set-1(failed)">
+    <parameter name="browser" value="Android"/>
+    <classes>
+      <class name="test.LoginTest">
+        <methods>
+          <include name="logintoApp"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- test.LoginTest -->
+    </classes>
+  </test> <!-- Set-1(failed) -->
+</suite> <!-- Failed suite [Trigent Automation Framework] -->
