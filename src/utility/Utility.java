@@ -7,14 +7,22 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-
+import org.openqa.selenium.WebElement;
 
 import driver.Base;
 
 public class Utility extends Base {
+
+	final WebDriver webDriver;
+
+	public Utility(WebDriver webDriver) {
+		// TODO Auto-generated constructor stub
+		this.webDriver = webDriver;
+	}
 
 	public static void veryShortSleep() throws InterruptedException{
 		Thread.sleep(Integer.parseInt(CONFIG.getProperty("VeryShort")));
@@ -36,6 +44,45 @@ public class Utility extends Base {
 	public static void veryLongSleep() throws InterruptedException{
 		Thread.sleep(Integer.parseInt(CONFIG.getProperty("VeryLong")));
 	}
+
+	/*Method to initialize element by ID*/
+	public WebElement findByID(String elementID) throws InterruptedException{
+		WebElement webElement = webDriver.findElement(By.id(elementID));
+		return webElement;
+	}
+
+	/*Method to initialize element by Name*/
+	public WebElement findByName(String elementName) throws InterruptedException{
+		WebElement webElement = webDriver.findElement(By.name(elementName));
+		return webElement;
+	}
+
+	/*Method to initialize element by XPath using class and text attribute*/
+	public WebElement findByXPathClassText(String widgetname, String elementText) throws InterruptedException{
+		/* Any android.widget.RadioButton with text value ' like 'Submit'' */
+		WebElement webElement = webDriver.findElement(By.xpath("//android.widget."+widgetname+"[@text='"+elementText+"']")); 
+		return webElement;
+	}
+
+	/*Method to initialize element by XPath using class and resource-id*/
+	public WebElement findByXPathID(String widgetname, String elementID) throws InterruptedException{
+		/* Any android.widget.Edittext with resource-id value 'com.automation.test:id/editText1' */
+		WebElement webElement = webDriver.findElement(By.xpath("//android.widget."+widgetname+"[@resource-id='"+elementID+"']")); 
+		return webElement;
+	}
+
+	/*Method to initialize element by XPath using class, text attribute and resource-id*/
+	public WebElement findByXPathClassTextID(String widgetname, String elementText, String elementID) throws InterruptedException{
+		WebElement webElement = webDriver.findElement(By.xpath("//android.widget."+widgetname+"[@resource-id='"+elementID+"and @text='"+elementText+"'']")); 
+		return webElement;
+	}
+
+	/*Method to initialize element by XPath using class, text attribute and index*/
+	public WebElement findByXPathClassTextIndex(String widgetname, String elementText, int elementIndex) throws InterruptedException{
+		WebElement webElement = webDriver.findElement(By.xpath("//android.widget."+widgetname+"[@resource-id='"+elementText+"and @index='"+elementIndex+"'']")); 
+		return webElement;
+	}
+
 
 	public static void takeScreenShot(String fileName, WebDriver driver) {
 		try {

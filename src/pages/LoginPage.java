@@ -13,19 +13,36 @@ import utility.Utility;
 public class LoginPage extends Base{
 
 	final WebDriver driver;
+	Utility utility;
+	WebElement emailInput;
+	WebElement passwordInput;
+	WebElement signInButton;
 
 	public LoginPage(WebDriver driver) {
 		this.driver = driver;
+		utility = new Utility(driver);
 	}
 
-	@FindBy(how = How.ID, using = "com.trigent.empconnect:id/activity_login_editText_employeeID")
-	private WebElement emailInput;
+	
+	public void SetUp(){
+		try {
+			 emailInput = utility.findByID("com.trigent.empconnect:id/activity_login_editText_employeeID");
+			 passwordInput = utility.findByID("com.trigent.empconnect:id/activity_login_editText_pwd");
+			 signInButton = utility.findByID("com.trigent.empconnect:id/activity_login_button_login");
+			 
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	
+//	@FindBy(how = How.ID, using = "com.trigent.empconnect:id/activity_login_editText_employeeID")
+//	private WebElement emailInput1;
 
-	@FindBy(how = How.ID, using = "com.trigent.empconnect:id/activity_login_editText_pwd")
-	private WebElement passwordInput;
+//	@FindBy(how = How.ID, using = "com.trigent.empconnect:id/activity_login_editText_pwd")
+//	private WebElement passwordInput;
 
-	@FindBy(how = How.ID, using = "com.trigent.empconnect:id/activity_login_button_login")
-	private WebElement signInButton;
+//	@FindBy(how = How.ID, using = "com.trigent.empconnect:id/activity_login_button_login")
+//	private WebElement signInButton;
 
 	public void enterEmail(String email) {
 		emailInput.clear();
@@ -51,6 +68,7 @@ public class LoginPage extends Base{
 
 
 	public HomePage login(String email, String password) throws InterruptedException{
+		SetUp();
 		enterEmail(email);
 		Utility.veryShortSleep();
 		enterPassword(password);
