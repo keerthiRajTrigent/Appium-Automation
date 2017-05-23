@@ -2,12 +2,14 @@ package pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
 
 import driver.Base;
+import io.appium.java_client.android.AndroidDriver;
 import utility.Utility;
 
 public class LoginPage extends Base{
@@ -71,11 +73,12 @@ public class LoginPage extends Base{
 		SetUp();
 		enterEmail(email);
 		Utility.veryShortSleep();
+		//Utility.takeScreenShot(this.getClass().getName().toString(), driver);
 		enterPassword(password);
 		Utility.veryShortSleep();
 		driver.navigate().back();
 		Utility.veryShortSleep();
-		Utility.takeScreenShot(this.getClass().getName().toString(), driver);
+	//	Utility.takeScreenShot(this.getClass().getName().toString(), driver);
 		Utility.veryShortSleep();
 		clickSignInButton();
 		Utility.shortSleep();
