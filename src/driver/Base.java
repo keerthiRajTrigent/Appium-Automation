@@ -76,6 +76,22 @@ public class Base {
 		return threadDriver.get();
 	}
 	
+	public static AndroidDriver setupAndroidDriver(){
+		
+		DesiredCapabilities capabilities = new DesiredCapabilities();
+
+		// Set android deviceName desired capability. Set your device name.
+		capabilities.setCapability("deviceName", CONFIG.getProperty("deviceName")); 
+		capabilities.setCapability(CapabilityType.BROWSER_NAME, CONFIG.getProperty("OSType")); 
+		capabilities.setCapability(CapabilityType.VERSION, CONFIG.getProperty("OSVersion")); 
+		capabilities.setCapability("platformName", CONFIG.getProperty("OSType")); 
+		capabilities.setCapability("appPackage", CONFIG.getProperty("appPackage"));
+		capabilities.setCapability("appActivity", CONFIG.getProperty("appActivity"));
+		AndroidDriver driver = new AndroidDriver(capabilities);
+		return driver;
+		
+	}
+	
 
 
 
@@ -104,6 +120,7 @@ public class Base {
 		if(applogger == null){
 			System.out.println("Intializing the logger");
 			applogger = Logger.getLogger("devpinoyLogger");
+			System.out.println(applogger);
 		}
 
 		if(DATA == null){

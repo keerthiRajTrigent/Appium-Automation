@@ -1,8 +1,10 @@
 package pages;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.PageFactory;
 import driver.Base;
+import io.appium.java_client.android.AndroidDriver;
 
 public class BasePage extends Base {
 
@@ -16,8 +18,8 @@ public class BasePage extends Base {
 		return PageFactory.initElements(driver, LoginPage.class);  
 	}
 	
-	public HomePage raiseTicket() throws InterruptedException{
-		return PageFactory.initElements(driver, HomePage.class);  
-	}
+//	public HomePage raiseTicket() throws InterruptedException{
+//		return PageFactory.initElements(driver, HomePage.class);  
+//	}
 
 }

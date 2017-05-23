@@ -2,7 +2,10 @@ package utility;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -12,8 +15,10 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import driver.Base;
+import io.appium.java_client.android.AndroidDriver;
 
 public class Utility extends Base {
 
@@ -84,17 +89,37 @@ public class Utility extends Base {
 	}
 
 
-	public static void takeScreenShot(String fileName, WebDriver driver) {
-		try {
-			if (CONFIG.getProperty("Enable_Screenshot").equalsIgnoreCase("Yes")) {
-				File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-				FileUtils.copyFile(scrFile, new File(CONFIG.getProperty("ScreenshotLocation") + fileName + ".png"));
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}         
+//	public static void takeScreenShot(String fileName, WebDriver driver) {
+//		try {
+//			if (CONFIG.getProperty("Enable_Screenshot").equalsIgnoreCase("Yes")) {
+//				File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+//				FileUtils.copyFile(scrFile, new File(CONFIG.getProperty("ScreenshotLocation") + fileName + ".png"));
+//			}
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}         
+//
+//	}
+	
+	 public static void takeScreenShot(String fileName, WebDriver driver) {
+		  // Set folder name to store screenshots.
+		 String destDir = "screenshots";
+		  // Capture screenshot.
+		  File scrFile = ((TakesScreenshot) setupAndroidDriver()).getScreenshotAs(OutputType.FILE);
+		  // Set date format to set It as screenshot file name.
+		  DateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy__hh_mm_ssaa");
+		  // Create folder under project with name "screenshots" provided to destDir.
+		  new File(destDir).mkdirs();
+		  // Set file name using current date time.
+		  String destFile = dateFormat.format(new Date()) + ".png";
 
-	}
+		  try {
+		   // Copy paste file at destination folder location
+		   FileUtils.copyFile(scrFile, new File(destDir + "/" + destFile));
+		  } catch (IOException e) {
+		   e.printStackTrace();
+		  }
+		 }
 
 	public static void updateToLog(String className, String MethodName, String message){
 		applogger.debug("ClassName==>  " + className + "   MethodName ==> " + MethodName + "   Message==> " + message );
