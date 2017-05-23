@@ -9,6 +9,7 @@ import driver.Base;
 import pages.BasePage;
 import pages.HomePage;
 import pages.LoginPage;
+import pages.RaiseTicketPage;
 import utility.Utility;
 
 public class LoginTest extends Base{
@@ -47,8 +48,9 @@ public class LoginTest extends Base{
 		System.out.println("Raising ticket");		
 		basePage.raiseTicket();
 		Utility.veryShortSleep();
-		homePage.raiseTicket(summary,description);
+		RaiseTicketPage raisePage = homePage.goToRaiseTicket();
 		Utility.veryShortSleep();
+		raisePage.raiseTicket(summary, description);
 		System.out.println("Ticket Raised successfully");	
 		}catch (Exception e) {
 			e.printStackTrace();
