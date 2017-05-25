@@ -72,6 +72,8 @@ public class LoginPage extends Base{
 
 	public HomePage login(String email, String password) throws InterruptedException{
 		SetUp();
+		
+		Utility.takeScreenShot("Login", driver);
 		enterEmail(email);
 		Utility.veryShortSleep();
 		enterPassword(password);
