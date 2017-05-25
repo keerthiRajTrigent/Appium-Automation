@@ -43,15 +43,17 @@ public class HomePage extends Base {
 //	@FindBy(how = How.ID, using = "com.trigent.empconnect:id/fragment_raiseTicket_button_submit")
 //	private WebElement submitButton;
 	
-	public void clickRaiseTicket() {
-		riaseTicketButton.click();
-	}
+//	public void clickRaiseTicket() {
+//		riaseTicketButton.click();
+//	}
 	
 	
 	
 	public RaiseTicketPage goToRaiseTicket() throws InterruptedException{
 		SetUp();
-		clickRaiseTicket();
+		//Click on RaiseTicket Button
+		utility.buttonClick(riaseTicketButton);
+//		clickRaiseTicket();
 		Utility.shortSleep();
 		
 		

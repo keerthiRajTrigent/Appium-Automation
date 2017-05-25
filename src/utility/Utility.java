@@ -87,6 +87,19 @@ public class Utility extends Base {
 		WebElement webElement = webDriver.findElement(By.xpath("//android.widget."+widgetname+"[@resource-id='"+elementText+"and @index='"+elementIndex+"'']")); 
 		return webElement;
 	}
+	
+	/*Common Functions*/
+	
+	/*Button - Button click function*/
+	public void  buttonClick(WebElement button){
+		button.click();
+	}
+	
+	/*EditText - Pass value to edittext*/
+	public void editTextInput(WebElement editText, String value){
+		editText.clear();
+		editText.sendKeys(value);
+	}
 
 
 //	public static void takeScreenShot(String fileName, WebDriver driver) {

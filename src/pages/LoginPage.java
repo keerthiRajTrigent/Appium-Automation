@@ -47,41 +47,44 @@ public class LoginPage extends Base{
 //	@FindBy(how = How.ID, using = "com.trigent.empconnect:id/activity_login_button_login")
 //	private WebElement signInButton;
 
-	public void enterEmail(String email) {
-		emailInput.clear();
-		emailInput.sendKeys(email);
-	}
+//	public void enterEmail(String email) {
+//		emailInput.clear();
+//		emailInput.sendKeys(email);
+//	}
 
 
 
 	/**
 	 * @param password the password
 	 */
-	public void enterPassword(String password) {
-		passwordInput.clear();
-		passwordInput.sendKeys(password);
-	}
+//	public void enterPassword(String password) {
+//		passwordInput.clear();
+//		passwordInput.sendKeys(password);
+//	}
 
 	/**
 	 * Click sign in button.
 	 */
-	public void clickSignInButton(){
-		signInButton.click();
-	}
+//	public void clickSignInButton(){
+//		signInButton.click();
+//	}
 
 
 	public HomePage login(String email, String password) throws InterruptedException{
 		SetUp();
-		
+
 		Utility.takeScreenShot("Login", driver);
-		enterEmail(email);
+		utility.editTextInput(emailInput, email);
 		Utility.veryShortSleep();
-		enterPassword(password);
+		//Utility.takeScreenShot(this.getClass().getName().toString(), driver);
+//		enterPassword(password);
+//		enterPassword(password);
 		Utility.veryShortSleep();
 		driver.hideKeyboard();
 		Utility.veryShortSleep();
 		Utility.veryShortSleep();
-		clickSignInButton();
+//		clickSignInButton();
+		utility.buttonClick(signInButton);
 		Utility.shortSleep();
 		
 		PageFactory.initElements(new AppiumFieldDecorator(driver), HomePage.class);
