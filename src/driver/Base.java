@@ -26,6 +26,7 @@ import io.appium.java_client.android.AndroidDriver;
 import jdk.nashorn.internal.runtime.regexp.joni.Config;
 import pages.HomePage;
 import utility.Utility;
+import utility.Xls_Reader;
 
 public class Base {
 
@@ -46,8 +47,10 @@ public class Base {
 
 	/** The Operationsmenu. */
 	public static Actions Operationsmenu;
+	
+	public static Xls_Reader xls = new Xls_Reader(System.getProperty("user.dir") + "\\TestData\\Data.xlsx");
 
-	protected ThreadLocal<RemoteWebDriver> threadDriver;
+	protected AndroidDriver<WebElement> driver;
 
 	@BeforeClass
 	 @Parameters("browser")
@@ -65,32 +68,32 @@ public class Base {
 		capabilities.setCapability("appPackage", CONFIG.getProperty("appPackage"));
 		capabilities.setCapability("appActivity", CONFIG.getProperty("appActivity"));
 
-		threadDriver = new ThreadLocal<RemoteWebDriver>();
-		threadDriver.set(new RemoteWebDriver(new URL(CONFIG.getProperty("HUB_URL")), capabilities));;
+		driver = new AndroidDriver<WebElement>(new URL(CONFIG.getProperty("HUB_URL")), capabilities);
+//		threadDriver.set(new RemoteWebDriver(new URL(CONFIG.getProperty("HUB_URL")), capabilities));;
 
 		String timout = CONFIG.getProperty("IMPLICIT_WAIT");
 		getDriver().manage().timeouts().implicitlyWait(Long.parseLong(timout.trim()), TimeUnit.SECONDS);
 	}
 
-	public WebDriver getDriver() {    
-		return threadDriver.get();
+	public AndroidDriver<WebElement> getDriver() {    
+		return driver;
 	}
 	
-	public static AndroidDriver setupAndroidDriver(){
-		
-		DesiredCapabilities capabilities = new DesiredCapabilities();
-
-		// Set android deviceName desired capability. Set your device name.
-		capabilities.setCapability("deviceName", CONFIG.getProperty("deviceName")); 
-		capabilities.setCapability(CapabilityType.BROWSER_NAME, CONFIG.getProperty("OSType")); 
-		capabilities.setCapability(CapabilityType.VERSION, CONFIG.getProperty("OSVersion")); 
-		capabilities.setCapability("platformName", CONFIG.getProperty("OSType")); 
-		capabilities.setCapability("appPackage", CONFIG.getProperty("appPackage"));
-		capabilities.setCapability("appActivity", CONFIG.getProperty("appActivity"));
-		AndroidDriver driver = new AndroidDriver(capabilities);
-		return driver;
-		
-	}
+//	public static AndroidDriver<WebElement> setupAndroidDriver(){
+//		
+//		DesiredCapabilities capabilities = new DesiredCapabilities();
+//
+//		// Set android deviceName desired capability. Set your device name.
+//		capabilities.setCapability("deviceName", CONFIG.getProperty("deviceName")); 
+//		capabilities.setCapability(CapabilityType.BROWSER_NAME, CONFIG.getProperty("OSType")); 
+//		capabilities.setCapability(CapabilityType.VERSION, CONFIG.getProperty("OSVersion")); 
+//		capabilities.setCapability("platformName", CONFIG.getProperty("OSType")); 
+//		capabilities.setCapability("appPackage", CONFIG.getProperty("appPackage"));
+//		capabilities.setCapability("appActivity", CONFIG.getProperty("appActivity"));
+//		AndroidDriver<WebElement> driver = new AndroidDriver<WebElement>(capabilities);
+//		return driver;
+//		
+//	}
 	
 
 

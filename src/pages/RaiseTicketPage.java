@@ -5,17 +5,19 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 import driver.Base;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import utility.Utility;
 
 public class RaiseTicketPage extends Base {
 	
-	final WebDriver driver;
+	final AndroidDriver<WebElement> driver;
 	Utility utility;
 	WebElement summaryInput;
 	WebElement descriptionInput;
 	WebElement submitButton;
 
-	public RaiseTicketPage(WebDriver driver) {
+	public RaiseTicketPage(AndroidDriver<WebElement> driver) {
 		this.driver = driver;
 		utility = new Utility(driver);
 	}
@@ -56,14 +58,15 @@ public class RaiseTicketPage extends Base {
 		utility.editTextInput(descriptionInput, description);
 //		enterDescription(description);
 		Utility.veryShortSleep();
-		driver.navigate().back();
+		driver.hideKeyboard();
 		Utility.veryShortSleep();
 		//Click on SubmitTicket Button
 		utility.buttonClick(submitButton);
 //		submitTicket();
 		Utility.shortSleep();
 		
-		return PageFactory.initElements(driver, HomePage.class);
+		PageFactory.initElements(new AppiumFieldDecorator(driver), HomePage.class);
+		return new HomePage(driver);
 	}
 
 }

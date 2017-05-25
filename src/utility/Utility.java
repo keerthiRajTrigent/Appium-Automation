@@ -114,11 +114,11 @@ public class Utility extends Base {
 //
 //	}
 	
-	 public static void takeScreenShot(String fileName, WebDriver driver) {
+	 public static void takeScreenShot(String fileName, AndroidDriver<WebElement> driver) {
 		  // Set folder name to store screenshots.
 		 String destDir = "screenshots";
 		  // Capture screenshot.
-		  File scrFile = ((TakesScreenshot) setupAndroidDriver()).getScreenshotAs(OutputType.FILE);
+		  File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		  // Set date format to set It as screenshot file name.
 		  DateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy__hh_mm_ssaa");
 		  // Create folder under project with name "screenshots" provided to destDir.

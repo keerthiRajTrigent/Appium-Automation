@@ -10,17 +10,18 @@ import org.openqa.selenium.support.PageFactory;
 
 import driver.Base;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import utility.Utility;
 
 public class LoginPage extends Base{
 
-	final WebDriver driver;
+	final AndroidDriver<WebElement> driver;
 	Utility utility;
 	WebElement emailInput;
 	WebElement passwordInput;
 	WebElement signInButton;
 
-	public LoginPage(WebDriver driver) {
+	public LoginPage(AndroidDriver<WebElement> driver) {
 		this.driver = driver;
 		utility = new Utility(driver);
 	}
@@ -77,15 +78,17 @@ public class LoginPage extends Base{
 		//Utility.takeScreenShot(this.getClass().getName().toString(), driver);
 //		enterPassword(password);
 		utility.editTextInput(passwordInput, password);
+//		enterPassword(password);
 		Utility.veryShortSleep();
-		driver.navigate().back();
+		driver.hideKeyboard();
 		Utility.veryShortSleep();
-	//	Utility.takeScreenShot(this.getClass().getName().toString(), driver);
 		Utility.veryShortSleep();
 //		clickSignInButton();
 		utility.buttonClick(signInButton);
 		Utility.shortSleep();
-		return PageFactory.initElements(driver, HomePage.class);
+		
+		PageFactory.initElements(new AppiumFieldDecorator(driver), HomePage.class);
+		return new HomePage(driver);
 	}
 
 }

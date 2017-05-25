@@ -9,15 +9,16 @@ import org.openqa.selenium.support.PageFactory;
 
 import driver.Base;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import utility.Utility;
 
 public class HomePage extends Base {
 	
-	final WebDriver driver;
+	final AndroidDriver<WebElement> driver;
 	Utility utility;
 	WebElement riaseTicketButton;
 
-	public HomePage(WebDriver driver) {
+	public HomePage(AndroidDriver<WebElement> driver) {
 		this.driver = driver;
 		utility = new Utility(driver);
 	}
@@ -55,7 +56,10 @@ public class HomePage extends Base {
 //		clickRaiseTicket();
 		Utility.shortSleep();
 		
-		return PageFactory.initElements(driver, RaiseTicketPage.class);
+		
+		PageFactory.initElements(new AppiumFieldDecorator(driver), RaiseTicketPage.class);
+		
+		return new RaiseTicketPage(driver);
 	}
 
 }
