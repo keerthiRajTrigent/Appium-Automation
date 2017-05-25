@@ -31,34 +31,36 @@ public class RaiseTicketPage extends Base {
 	}
 	
 	
-	public void enterSummary(String summary) {
-		summaryInput.clear();
-		summaryInput.sendKeys(summary);
-	}
+//	public void enterSummary(String summary) {
+//		summaryInput.clear();
+//		summaryInput.sendKeys(summary);
+//	}
 
-	public void enterDescription(String desciption) {
-		descriptionInput.clear();
-		descriptionInput.sendKeys(desciption);
-	}
+//	public void enterDescription(String desciption) {
+//		descriptionInput.clear();
+//		descriptionInput.sendKeys(desciption);
+//	}
 
-	public void submitTicket() {
-		submitButton.click();
-		
-		
-		
-		
-	}
+//	public void submitTicket() {
+//		submitButton.click();
+//	}
 	
 	
 	public HomePage raiseTicket(String summary, String description) throws InterruptedException{
 		SetUp();
-		enterSummary(summary);
+		//Enter Summary in to EditText field
+		utility.editTextInput(summaryInput, summary);
+//		enterSummary(summary);
 		Utility.veryShortSleep();
-		enterDescription(description);
+		//Enter Description in to Edittext field
+		utility.editTextInput(descriptionInput, description);
+//		enterDescription(description);
 		Utility.veryShortSleep();
 		driver.navigate().back();
 		Utility.veryShortSleep();
-		submitTicket();
+		//Click on SubmitTicket Button
+		utility.buttonClick(submitButton);
+//		submitTicket();
 		Utility.shortSleep();
 		
 		return PageFactory.initElements(driver, HomePage.class);
