@@ -1,11 +1,15 @@
 package test;
 
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.pagefactory.FieldDecorator;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import driver.Base;
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import pages.BasePage;
 import pages.HomePage;
 import pages.LoginPage;
@@ -38,7 +42,8 @@ public class LoginTest extends Base{
 	{
 		Utility.updateToLog("Logintest", "logintoApp", "login to Application Starts");
 		System.out.println("login to Application Starts");		
-		BasePage basePage = PageFactory.initElements(getDriver(), BasePage.class);
+		PageFactory.initElements( new AppiumFieldDecorator((AppiumDriver<WebElement>)getDriver()), BasePage.class);
+		BasePage basePage = new BasePage(getDriver());
 		LoginPage loginPage = basePage.signIn();
 		Utility.veryShortSleep();
 		HomePage homePage = loginPage.login(loginEmail, loginPassword);
@@ -46,7 +51,6 @@ public class LoginTest extends Base{
 		System.out.println("login to Application successfully");
 		
 		System.out.println("Raising ticket");		
-//		basePage.raiseTicket();
 		Utility.veryShortSleep();
 		RaiseTicketPage raisePage = homePage.goToRaiseTicket();
 		Utility.veryShortSleep();
