@@ -78,7 +78,7 @@ public class LoginPage extends Base{
 		Utility.veryShortSleep();
 		//Utility.takeScreenShot(this.getClass().getName().toString(), driver);
 //		enterPassword(password);
-//		enterPassword(password);
+		utility.editTextInput(passwordInput, password);
 		Utility.veryShortSleep();
 		driver.hideKeyboard();
 		Utility.veryShortSleep();
