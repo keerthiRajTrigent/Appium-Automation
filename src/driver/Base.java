@@ -3,6 +3,7 @@ package driver;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Hashtable;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -17,14 +18,17 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.SkipException;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import jdk.nashorn.internal.runtime.regexp.joni.Config;
 import pages.HomePage;
+import utility.TestUtil;
 import utility.Utility;
 import utility.Xls_Reader;
 
@@ -57,14 +61,19 @@ public class Base {
 	public void setUp(String Browser) throws IOException, InterruptedException {
 		// Created object of DesiredCapabilities class.
 		System.out.println("In Before Class for Browser:: " + Browser);
+		System.out.println("Device Name from XLS:: " + xls.getCellData("Device Data", "DeviceName", 2));
 		Base.init();
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 
 		// Set android deviceName desired capability. Set your device name.
-		capabilities.setCapability("deviceName", CONFIG.getProperty("deviceName")); 
-		capabilities.setCapability(CapabilityType.BROWSER_NAME, CONFIG.getProperty("OSType")); 
-		capabilities.setCapability(CapabilityType.VERSION, CONFIG.getProperty("OSVersion")); 
-		capabilities.setCapability("platformName", CONFIG.getProperty("OSType")); 
+//		capabilities.setCapability("deviceName", CONFIG.getProperty("deviceName")); 
+//		capabilities.setCapability(CapabilityType.BROWSER_NAME, CONFIG.getProperty("OSType")); 
+//		capabilities.setCapability(CapabilityType.VERSION, CONFIG.getProperty("OSVersion")); 
+//		capabilities.setCapability("platformName", CONFIG.getProperty("OSType")); 
+		capabilities.setCapability("deviceName", xls.getCellData("Device Data", "DeviceName", 2));
+		capabilities.setCapability(CapabilityType.BROWSER_NAME, xls.getCellData("Device Data", "OSType", 2));
+		capabilities.setCapability(CapabilityType.VERSION, xls.getCellData("Device Data", "OSVersion", 2));
+		capabilities.setCapability("platformName", xls.getCellData("Device Data", "OSType", 2));
 		capabilities.setCapability("appPackage", CONFIG.getProperty("appPackage"));
 		capabilities.setCapability("appActivity", CONFIG.getProperty("appActivity"));
 
@@ -78,6 +87,7 @@ public class Base {
 	public AndroidDriver<WebElement> getDriver() {    
 		return driver;
 	}
+	
 	
 //	public static AndroidDriver<WebElement> setupAndroidDriver(){
 //		
