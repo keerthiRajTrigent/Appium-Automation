@@ -2,12 +2,12 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Trigent Automation Framework" duration-ms="119222" started-at="2017-05-29T12:59:23Z" finished-at="2017-05-29T13:01:22Z">
+  <suite name="Trigent Automation Framework" duration-ms="81666" started-at="2017-05-31T11:28:47Z" finished-at="2017-05-31T11:30:09Z">
     <groups>
     </groups>
-    <test name="Set-1" duration-ms="119222" started-at="2017-05-29T12:59:23Z" finished-at="2017-05-29T13:01:22Z">
+    <test name="Set-1" duration-ms="81666" started-at="2017-05-31T11:28:47Z" finished-at="2017-05-31T11:30:09Z">
       <class name="test.LoginTest">
-        <test-method status="PASS" signature="setUp(java.lang.String)[pri:0, instance:test.LoginTest@236e3f4e]" name="setUp" is-config="true" duration-ms="30392" started-at="2017-05-29T18:29:23Z" finished-at="2017-05-29T18:29:53Z">
+        <test-method status="PASS" signature="setUp(java.lang.String)[pri:0, instance:test.LoginTest@dd0c991]" name="setUp" is-config="true" duration-ms="30831" started-at="2017-05-31T16:58:47Z" finished-at="2017-05-31T16:59:18Z">
           <params>
             <param index="0">
               <value>
@@ -18,15 +18,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:test.LoginTest@236e3f4e]" name="setUp" is-config="true" duration-ms="0" started-at="2017-05-29T18:29:53Z" finished-at="2017-05-29T18:29:53Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:test.LoginTest@dd0c991]" name="setUp" is-config="true" duration-ms="0" started-at="2017-05-31T16:59:18Z" finished-at="2017-05-31T16:59:18Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="logintoApp()[pri:1, instance:test.LoginTest@236e3f4e]" name="logintoApp" duration-ms="83866" started-at="2017-05-29T18:29:53Z" finished-at="2017-05-29T18:31:17Z">
+        <test-method status="PASS" signature="logintoApp()[pri:1, instance:test.LoginTest@dd0c991]" name="logintoApp" duration-ms="45907" started-at="2017-05-31T16:59:18Z" finished-at="2017-05-31T17:00:04Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- logintoApp -->
-        <test-method status="PASS" signature="quitDriver()[pri:0, instance:test.LoginTest@236e3f4e]" name="quitDriver" is-config="true" duration-ms="4947" started-at="2017-05-29T18:31:17Z" finished-at="2017-05-29T18:31:22Z">
+        <test-method status="PASS" signature="quitDriver()[pri:0, instance:test.LoginTest@dd0c991]" name="quitDriver" is-config="true" duration-ms="4912" started-at="2017-05-31T17:00:04Z" finished-at="2017-05-31T17:00:09Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- quitDriver -->

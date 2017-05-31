@@ -11,6 +11,7 @@ import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -99,6 +100,17 @@ public class Utility extends Base {
 	public void editTextInput(WebElement editText, String value){
 		editText.clear();
 		editText.sendKeys(value);
+	}
+	
+	/*Scroll - Scroll down to the end of the page */
+	public void scroll(){
+		Dimension dimensions = driver.manage().window().getSize();
+		Double screenHeightStart = dimensions.getHeight() * 0.5;
+		int scrollStart = screenHeightStart.intValue();
+		System.out.println("s="+scrollStart);
+		Double screenHeightEnd = dimensions.getHeight() * 0.2;
+		int scrollEnd = screenHeightEnd.intValue();
+		driver.swipe(0,scrollStart,0,scrollEnd,2000);
 	}
 
 

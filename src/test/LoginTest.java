@@ -4,6 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.FieldDecorator;
 import org.testng.Assert;
+import org.testng.SkipException;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -14,6 +15,7 @@ import pages.BasePage;
 import pages.HomePage;
 import pages.LoginPage;
 import pages.RaiseTicketPage;
+import utility.TestUtil;
 import utility.Utility;
 
 public class LoginTest extends Base{
@@ -40,6 +42,10 @@ public class LoginTest extends Base{
 	public void logintoApp() throws InterruptedException {
 	try
 	{
+		if (!TestUtil.isExecuatable("LoginTest", xls) ) {
+			System.out.println("Skipping the Test");		
+		}
+		
 		Utility.updateToLog("Logintest", "logintoApp", "login to Application Starts");
 		System.out.println("login to Application Starts");		
 		PageFactory.initElements( new AppiumFieldDecorator((AppiumDriver<WebElement>)getDriver()), BasePage.class);

@@ -9,6 +9,8 @@
         <methods>
           <include name="logintoApp"/>
           <include name="setUp"/>
+          <include name="quitDriver"/>
+          <include name="setUp"/>
         </methods>
       </class> <!-- test.LoginTest -->
     </classes>

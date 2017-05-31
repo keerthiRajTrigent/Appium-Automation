@@ -1,12 +1,15 @@
 package pages;
 
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.SkipException;
 
 import driver.Base;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import utility.TestUtil;
 import utility.Utility;
 
 public class RaiseTicketPage extends Base {
@@ -47,25 +50,35 @@ public class RaiseTicketPage extends Base {
 //		submitButton.click();
 //	}
 	
-	
+
 	public HomePage raiseTicket(String summary, String description) throws InterruptedException{
 		SetUp();
-		//Enter Summary in to EditText field
-		utility.editTextInput(summaryInput, summary);
-//		enterSummary(summary);
-		Utility.veryShortSleep();
-		//Enter Description in to Edittext field
-		utility.editTextInput(descriptionInput, description);
-//		enterDescription(description);
-		Utility.veryShortSleep();
-		driver.hideKeyboard();
-		Utility.veryShortSleep();
-		//Click on SubmitTicket Button
-		utility.buttonClick(submitButton);
-//		submitTicket();
-		Utility.shortSleep();
 		
-		PageFactory.initElements(new AppiumFieldDecorator(driver), HomePage.class);
+		if (!TestUtil.isExecuatable("RaiseTicketTest", xls) ) {
+//			throw new SkipException("Skipping the Row");
+			System.out.println("Skipping the Test");		
+		}
+		else{
+			//Enter Summary in to EditText field
+			utility.editTextInput(summaryInput, summary);
+//			enterSummary(summary);
+			Utility.veryShortSleep();
+			//Enter Description in to Edittext field
+			utility.editTextInput(descriptionInput, description);
+//			enterDescription(description);
+			Utility.veryShortSleep();
+			driver.hideKeyboard();
+			Utility.veryShortSleep();
+			//Click on SubmitTicket Button
+			utility.scroll();
+			Utility.shortSleep();
+			utility.buttonClick(submitButton);
+//			submitTicket();
+			Utility.shortSleep();
+			
+			PageFactory.initElements(new AppiumFieldDecorator(driver), HomePage.class);
+		}
+
 		return new HomePage(driver);
 	}
 
