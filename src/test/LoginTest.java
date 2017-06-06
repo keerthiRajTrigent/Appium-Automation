@@ -47,6 +47,7 @@ public class LoginTest extends Base{
 		}
 		
 		Utility.updateToLog("Logintest", "logintoApp", "login to Application Starts");
+		Utility.updateToLog("Logintest", "logintoApp", "login Starts");
 		System.out.println("login to Application Starts");		
 		PageFactory.initElements( new AppiumFieldDecorator((AppiumDriver<WebElement>)getDriver()), BasePage.class);
 		BasePage basePage = new BasePage(getDriver());

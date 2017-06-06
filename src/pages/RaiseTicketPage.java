@@ -57,6 +57,8 @@ public class RaiseTicketPage extends Base {
 		if (!TestUtil.isExecuatable("RaiseTicketTest", xls) ) {
 //			throw new SkipException("Skipping the Row");
 			System.out.println("Skipping the Test");		
+			Utility.updateToLog("RaiseTicketPage", "raiseTicket", utility.deviceInfo());
+			
 		}
 		else{
 			//Enter Summary in to EditText field

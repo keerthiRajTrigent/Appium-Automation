@@ -17,6 +17,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.SkipException;
 
 import driver.Base;
 import io.appium.java_client.android.AndroidDriver;
@@ -112,6 +113,17 @@ public class Utility extends Base {
 		int scrollEnd = screenHeightEnd.intValue();
 		driver.swipe(0,scrollStart,0,scrollEnd,2000);
 	}
+	
+	public String deviceInfo(){
+		String deviceInfo = "";
+		deviceInfo = xls.getCellData("Device Data", "DeviceName", 2);
+		deviceInfo = deviceInfo + " , " +xls.getCellData("Device Data", "OSType", 2);
+		deviceInfo = deviceInfo + " , " +xls.getCellData("Device Data", "OSVersion", 2);
+		deviceInfo = deviceInfo + " , " +xls.getCellData("Device Data", "OSType", 2);
+		deviceInfo = deviceInfo + " , " +CONFIG.getProperty("appPackage");
+		return deviceInfo;
+	}
+	
 
 
 //	public static void takeScreenShot(String fileName, WebDriver driver) {
