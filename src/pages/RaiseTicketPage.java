@@ -71,6 +71,7 @@ public class RaiseTicketPage extends Base {
 			Utility.veryShortSleep();
 			driver.hideKeyboard();
 			Utility.veryShortSleep();
+			Utility.takeScreenShot("Login", driver);
 			//Click on SubmitTicket Button
 			utility.scroll();
 			Utility.shortSleep();

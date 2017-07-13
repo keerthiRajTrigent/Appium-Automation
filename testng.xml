@@ -1,12 +1,23 @@
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Trigent Automation Framework">
-     <test name="Set-1" preserve-order="true">
-        <parameter name="browser" value ="Android"></parameter>
-        <classes>
-          	<class name="test.LoginTest"></class>
-          	<!-- <class name="test.RaiseTicketTest"></class> -->
-       </classes>
-     </test>
-</suite>
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Trigent Automation Framework" data-provider-thread-count="2" parallel="classess" thread-count="2" >
+	<test name="Test1">
+		<parameter name="deviceName_" value="onePlus"/>
+		<parameter name="UDID_" value="1ae487aa"/>
+		<parameter name="platformVersion_" value="7.1.1"/>
+		<parameter name="URL_" value="127.0.0.1:4723/wd/hub"/>
+		<classes>
+			<class name="test.LoginTest"></class>
+		</classes>
+	</test>
+	<test name="Test2">
+		<parameter name="deviceName_" value="tab"/>
+		<parameter name="UDID_" value="e9b94aea1ca24f6a"/>
+		<parameter name="platformVersion_" value="6.0.1"/>
+		<parameter name="URL_" value="127.0.0.2:5000/wd/hub"/>
+		<classes>
+			<class name="test.LoginTest"></class>
+		</classes>
+	</test>
+</suite> 
 
 

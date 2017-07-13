@@ -10,6 +10,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.OutputType;
@@ -25,6 +26,7 @@ import io.appium.java_client.android.AndroidDriver;
 public class Utility extends Base {
 
 	final WebDriver webDriver;
+	public static Logger applogger = null;
 
 	public Utility(WebDriver webDriver) {
 		// TODO Auto-generated constructor stub
@@ -89,20 +91,20 @@ public class Utility extends Base {
 		WebElement webElement = webDriver.findElement(By.xpath("//android.widget."+widgetname+"[@resource-id='"+elementText+"and @index='"+elementIndex+"'']")); 
 		return webElement;
 	}
-	
+
 	/*Common Functions*/
-	
+
 	/*Button - Button click function*/
 	public void  buttonClick(WebElement button){
 		button.click();
 	}
-	
+
 	/*EditText - Pass value to edittext*/
 	public void editTextInput(WebElement editText, String value){
 		editText.clear();
 		editText.sendKeys(value);
 	}
-	
+
 	/*Scroll - Scroll down to the end of the page */
 	public void scroll(){
 		Dimension dimensions = driver.manage().window().getSize();
@@ -113,7 +115,7 @@ public class Utility extends Base {
 		int scrollEnd = screenHeightEnd.intValue();
 		driver.swipe(0,scrollStart,0,scrollEnd,2000);
 	}
-	
+
 	public String deviceInfo(){
 		String deviceInfo = "";
 		deviceInfo = xls.getCellData("Device Data", "DeviceName", 2);
@@ -123,42 +125,47 @@ public class Utility extends Base {
 		deviceInfo = deviceInfo + " , " +CONFIG.getProperty("appPackage");
 		return deviceInfo;
 	}
-	
 
 
-//	public static void takeScreenShot(String fileName, WebDriver driver) {
-//		try {
-//			if (CONFIG.getProperty("Enable_Screenshot").equalsIgnoreCase("Yes")) {
-//				File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-//				FileUtils.copyFile(scrFile, new File(CONFIG.getProperty("ScreenshotLocation") + fileName + ".png"));
-//			}
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}         
-//
-//	}
-	
-	 public static void takeScreenShot(String fileName, AndroidDriver<WebElement> driver) {
-		  // Set folder name to store screenshots.
-		 String destDir = "screenshots";
-		  // Capture screenshot.
-		  File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-		  // Set date format to set It as screenshot file name.
-		  DateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy__hh_mm_ssaa");
-		  // Create folder under project with name "screenshots" provided to destDir.
-		  new File(destDir).mkdirs();
-		  // Set file name using current date time.
-		  String destFile = dateFormat.format(new Date()) + ".png";
 
-		  try {
-		   // Copy paste file at destination folder location
-		   FileUtils.copyFile(scrFile, new File(destDir + "/" + destFile));
-		  } catch (IOException e) {
-		   e.printStackTrace();
-		  }
-		 }
+	//	public static void takeScreenShot(String fileName, WebDriver driver) {
+	//		try {
+	//			if (CONFIG.getProperty("Enable_Screenshot").equalsIgnoreCase("Yes")) {
+	//				File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+	//				FileUtils.copyFile(scrFile, new File(CONFIG.getProperty("ScreenshotLocation") + fileName + ".png"));
+	//			}
+	//		} catch (IOException e) {
+	//			e.printStackTrace();
+	//		}         
+	//
+	//	}
+
+	public static void takeScreenShot(String fileName, AndroidDriver<WebElement> driver) {
+		// Set folder name to store screenshots.
+		String destDir = "screenshots";
+		// Capture screenshot.
+		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		// Set date format to set It as screenshot file name.
+		DateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy__hh_mm_ssaa");
+		// Create folder under project with name "screenshots" provided to destDir.
+		new File(destDir).mkdirs();
+		// Set file name using current date time.
+		String destFile = dateFormat.format(new Date()) + ".png";
+
+		try {
+			// Copy paste file at destination folder location
+			FileUtils.copyFile(scrFile, new File(destDir + "/" + destFile));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
 	public static void updateToLog(String className, String MethodName, String message){
+		if(applogger == null){
+			System.out.println("Intializing the logger");
+			applogger = Logger.getLogger("devpinoyLogger");
+			System.out.println(applogger);
+		}
 		applogger.debug("ClassName==>  " + className + "   MethodName ==> " + MethodName + "   Message==> " + message );
 	}
 
