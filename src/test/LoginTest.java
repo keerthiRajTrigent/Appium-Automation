@@ -51,9 +51,6 @@ public class LoginTest implements Runnable{
 		System.out.println("In Before Class of LoginTest");
 		loginEmail = "demo@demo.com";
 		loginPassword = "password";
-		//		loginEmail = Base.CONFIG.getProperty("loginEmail");
-		//		loginPassword = Base.CONFIG.getProperty("loginPassword");
-
 		summary = "summary";
 		description = "This is a short description for testing purpose";	
 	}
@@ -98,9 +95,6 @@ public class LoginTest implements Runnable{
 		System.out.println("In Before Class of LoginTest");
 		loginEmail = "demo@demo.com";
 		loginPassword = "password";
-		//		loginEmail = Base.CONFIG.getProperty("loginEmail");
-		//		loginPassword = Base.CONFIG.getProperty("loginPassword");
-
 		summary = "summary";
 		description = "This is a short description for testing purpose";	
 
@@ -125,40 +119,6 @@ public class LoginTest implements Runnable{
 			e.printStackTrace();
 		}
 
-
-		//		capabilities.setCapability("deviceName", xls.getCellData("Device Data", "DeviceName", 2));
-		//		capabilities.setCapability(CapabilityType.BROWSER_NAME, xls.getCellData("Device Data", "OSType", 2));
-		//		capabilities.setCapability(CapabilityType.VERSION, xls.getCellData("Device Data", "OSVersion", 2));
-		//		capabilities.setCapability("platformName", xls.getCellData("Device Data", "OSType", 2));
-		//		capabilities.setCapability("appPackage", CONFIG.getProperty("appPackage"));
-		//		capabilities.setCapability("appActivity", CONFIG.getProperty("appActivity"));
-
-
-
-
-		//		getDriver().manage().timeouts().implicitlyWait(Long.parseLong(timeout.trim()), TimeUnit.SECONDS);
-
-
-		//        capabilities.setCapability("deviceName", "My Mobile Device");
-		//        capabilities.setCapability("udid", udid);
-		//        capabilities.setCapability("platformVersion", "6.0.1");
-		//        capabilities.setCapability("platformName", "Android");
-		//        capabilities.setCapability("appPackage", "com.amazon.mShop.android.shopping");
-		//        capabilities.setCapability("appActivity", "com.amazon.mShop.home.HomeActivity");
-		//       
-		//        try {
-		//            driver = new AndroidDriver<WebElement>(new URL("http://127.0.0.1:" + port + "/wd/hub"), capabilities);
-		//            Thread.sleep(10000);
-		//        } catch (MalformedURLException e) {
-		//            e.printStackTrace();
-		//        } catch (InterruptedException e) {
-		//            e.printStackTrace();
-		//        }
-		//       
-		//        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
-		//       
-		//        hamburgerIcon.click();
-		//        hello.click();
 	}
 
 	public void run() {
