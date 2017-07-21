@@ -20,6 +20,7 @@ public class LoginPage extends Base{
 	WebElement emailInput;
 	WebElement passwordInput;
 	WebElement signInButton;
+	WebElement saveToggl;
 
 	public LoginPage(AndroidDriver<WebElement> driver) {
 		this.driver = driver;
@@ -32,6 +33,7 @@ public class LoginPage extends Base{
 			 emailInput = utility.findByID("com.trigent.empconnect:id/activity_login_editText_employeeID");
 			 passwordInput = utility.findByID("com.trigent.empconnect:id/activity_login_editText_pwd");
 			 signInButton = utility.findByID("com.trigent.empconnect:id/activity_login_button_login");
+			 saveToggl = utility.findByID("com.trigent.empconnect:id/activity_login_checkBox");
 			 
 		} catch (InterruptedException e) {
 			e.printStackTrace();
@@ -76,13 +78,13 @@ public class LoginPage extends Base{
 		Utility.takeScreenShot("Login", driver);
 		utility.editTextInput(emailInput, email);
 		Utility.veryShortSleep();
-		//Utility.takeScreenShot(this.getClass().getName().toString(), driver);
+		utility.buttonClick(saveToggl);
 //		enterPassword(password);
 		utility.editTextInput(passwordInput, password);
 		Utility.veryShortSleep();
 		driver.hideKeyboard();
-		Utility.veryShortSleep();
-		Utility.veryShortSleep();
+//		Utility.veryShortSleep();
+//		Utility.veryShortSleep();
 //		clickSignInButton();
 		utility.buttonClick(signInButton);
 		Utility.shortSleep();
