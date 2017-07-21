@@ -24,6 +24,7 @@ import pages.LoginPage;
 import pages.RaiseTicketPage;
 import utility.TestUtil;
 import utility.Utility;
+import utility.Xls_Reader;
 
 public class LoginTest implements Runnable{
 
@@ -33,13 +34,15 @@ public class LoginTest implements Runnable{
 	static String description = null;
 	Base base;
 	protected AndroidDriver<WebElement> driver;
+	public static Xls_Reader xls = new Xls_Reader(System.getProperty("user.dir") + "\\TestData\\Data.xlsx");
 
 	String port;
 	String udid;
 	String version;
 
 	public LoginTest(String portNumber, String udid, String platformVersion_) {
-		this.port = portNumber;
+		
+		this.port = portNumber.replace(".0", "");
 		this.udid = udid;
 		version = platformVersion_;
 	}
@@ -126,10 +129,26 @@ public class LoginTest implements Runnable{
 	}
 
 	public static void main(String args[]) {
-		Runnable r1 = new LoginTest("5000", "64cd1224","5.0.2"); //device id of black tablet
-		Runnable r2 = new LoginTest("4723", "e9b94aea1ca24f6a","6.0.1"); //device id of white tablet
-		new Thread(r1).start();
-		new Thread(r2).start();
+		String devicesData[][] = TestUtil.getDevicesData(xls);
+		for(String deviceData[]:devicesData){
+			System.out.println(deviceData[0]);
+			System.out.println(deviceData[1]);
+			System.out.println(deviceData[2]);
+			System.out.println("---------------------------------");
+			Runnable runnable = new LoginTest(deviceData[0], deviceData[1],deviceData[2]); //device id of white tablet
+			new Thread(runnable).start();
+		}
+		
+//		for(String deviceData[]:devicesData){
+//			System.out.println(deviceData[0]);
+//			System.out.println(deviceData[1]);
+//			System.out.println(deviceData[2]);
+//			System.out.println("---------------------------------");
+//		}
+//		Runnable r1 = new LoginTest("5000", "64cd1224","5.0.2"); //device id of black tablet
+//		Runnable r2 = new LoginTest("4723", "e9b94aea1ca24f6a","6.0.1"); //device id of white tablet
+//		new Thread(r1).start();
+//		new Thread(r2).start();
 	}
 
 }
