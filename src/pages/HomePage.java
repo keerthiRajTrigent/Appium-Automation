@@ -17,6 +17,7 @@ public class HomePage extends Base {
 	final AndroidDriver<WebElement> driver;
 	Utility utility;
 	WebElement riaseTicketButton;
+	WebElement myTicketButton;
 
 	public HomePage(AndroidDriver<WebElement> driver) {
 		this.driver = driver;
@@ -26,6 +27,7 @@ public class HomePage extends Base {
 	public void SetUp(){
 		try {
 			riaseTicketButton = utility.findByID("com.trigent.empconnect:id/fragment_home_button_raiseTicket");
+			myTicketButton = utility.findByID("com.trigent.empconnect:id/fragment_home_button_myTickets");
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -52,6 +54,17 @@ public class HomePage extends Base {
 	public RaiseTicketPage goToRaiseTicket() throws InterruptedException{
 		SetUp();
 		//Click on RaiseTicket Button
+		
+		utility.buttonClick(myTicketButton);
+		Utility.veryLongSleep();
+		Utility.shortSleep();
+		driver.scrollTo("NEW IN3");
+		Utility.shortSleep();
+		driver.scrollTo("Collection");
+		Utility.shortSleep();
+		driver.findElementByXPath("//android.widget.ImageView[contains(@resource-id,'fragment_myTickets_imageView_back')]").click();
+		Utility.shortSleep();
+		
 		utility.buttonClick(riaseTicketButton);
 //		clickRaiseTicket();
 		Utility.shortSleep();
